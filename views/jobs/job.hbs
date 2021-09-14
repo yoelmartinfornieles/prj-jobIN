@@ -1,0 +1,50 @@
+<div class="job-container">
+
+<div id = "job" class="card text-center">
+  {{#each this.job.locations}}
+  <div class="card-header">
+    {{this.name}}
+  </div>
+  {{/each}}
+  <div class="card-body">
+    <h5 class="card-title">{{this.job.name}}</h5>
+	{{#if this.job.categories}}
+		<p class="card-text" id="levels"><b>Category:</b>
+		{{#each this.job.categories}}
+    		{{this.name}}
+		</p>
+		{{/each}}
+	{{/if}}
+	<p class="card-text" id="levels">Job level:
+	{{#each this.job.levels}}
+    	{{this.name}}
+	</p>
+	{{/each}}
+    <p class="card-text">{{{job.contents}}}</p>
+	<a href="{{this.job.refs.landing_page}}" class="btn btn-primary">Apply to this job!</a>
+  </div>
+  <div class="card-footer text-muted">
+    Date published: {{job.publication_date.day}}, {{job.publication_date.hour}}
+  </div>
+</div>
+
+<div id="company" >
+  <div id="cimage">
+     <img src="{{this.company.refs.logo_image}}" class="card-img-top" alt="...">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{this.company.name}}</h5>
+    <p class="card-text">{{this.company.description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    {{#each company.locations}} 
+    <li class="list-group-item">{{this.name}}</li>
+    {{/each}}
+  </ul>
+  <div class="card-body">
+    <a href="/jobs/company/{{company.name}}/1" class="card-link">Job offers from this company</a>
+    <a href="{{company.refs.landing_page}}" class="card-link">Landing page</a>
+  </div>
+</div>
+
+</div>

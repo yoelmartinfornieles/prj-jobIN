@@ -1,0 +1,61 @@
+<div class='container'>
+  <h1>Job list</h1>
+
+  <div class='row row row-cols-1 row-cols-sm-2 row-cols-md-1 g-5 my-5' id="main">
+  {{!-- image name status --}}
+    {{#each jobs}}
+
+    <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+      <div class="card-header">
+        {{locations.[0].name}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">{{company.name}}</p>
+        <form action = "/jobs/{{id}}" method="GET">
+        <button type="submit" class="btn btn-outline-primary">Show more</button>
+        </form>
+      </div>
+         <div class="card-footer text-muted">
+            Date published: {{publication_date.day}}, {{publication_date.hour}}
+         </div>
+      </div>
+    {{/each}}    
+   </div>
+</div>
+
+
+
+
+{{!--         <form action = "/add-favorite" method="POST">
+          <input type="hidden" name="name" value={{title}}>
+          <input type="hidden" name="status" value={{description}}>
+          <input type="hidden" name="species" value={{skills}}>
+          <input type="hidden" name="gender" value={{gender}}>
+          <input type="hidden" name="image" value={{image}}>
+          <input type="hidden" name="apiId" value={{id}}>
+          <button type="submit">Añadir a favoritos</button> --}}
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      {{#if previous}}
+      <a id= "prev" class="page-link" href="/projectList/{{previous}}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+      {{/if}}
+    </li>
+    <li class="page-item active"><a class="page-link" href="/jobs/company/{{this.jobs.[0].company.name}}/{{page}}">{{page}}</a></li>
+    <li class="page-item"><a class="page-link" href="/jobs/company/{{this.jobs.[0].company.name}}/{{second}}">{{second}}</a></li>
+    <li class="page-item"><a class="page-link" href="/jobs/company/{{this.jobs.[0].company.name}}/{{third}}">{{third}}</a></li>
+    <li class="page-item"><a class="page-link" href="/jobs/company/{{this.jobs.[0].company.name}}/{{fourth}}">{{fourth}}</a></li>
+    <li class="page-item"><a class="page-link" href="/jobs/company/{{this.jobs.[0].company.name}}/{{fifth}}">{{fifth}}</a></li>
+    <li class="page-item"><a class="page-link" href="/jobs/company/{{this.jobs.[0].company.name}}/{{sixth}}">{{sixth}}</a></li>
+    <li class="page-item">
+      <a class="page-link" href="/jobs/company/{{this.jobs.[0].company.name}}/{{next}}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+ 
