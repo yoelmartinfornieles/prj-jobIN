@@ -89,49 +89,95 @@ router.get(`/jobs/company/:id/:page`, (req, res) => {
     .catch(err => console.log(err));
 })
 
-/* router.post("/add-favorite", isLoggedIn ,(req, res) =>{
-const query = { name, status, species, gender, image, apiId } = req.body
-const idToCheck = req.body.apiId;
-    Character.find({apiId: idToCheck})
-	.then (charArray => {
-		//comprobar si ese apiId ya esta en db characters
-		if (charArray.length === 0) {
-            Character
-                .create(query)
-                .then(result => {
-                  User
-                    .findByIdAndUpdate(req.user._id,{$push : {favorites : result._id}})
-                    .then(()=>{
-                        res.redirect("/characters")
-                    })
-                })
-                .catch(err => console.log(err))
+router.post('/search', (req, res) => {
+    let url="";
+    let bodyArray = Object.values(req.body)
+    let index= 0;
+    let firstPart = true;
+    for(variable in req.body){
+        if (bodyArray[index]){
+            console.log ("variable: ", bodyArray[index])
+            let key = variable
+            if (firstPart){
+                url=`${key}`+"="+`${bodyArray[index]}`;
+                firstPart = false;
+            } else {
+                url+="&"+`${key}`+"="+`${bodyArray[index]}`;
+            }
+        }
+        index ++;
+    }
+    console.log("url: ", url)
+    let page=1;
+    themuseAPI
+    .getProjectsBy(url,page)
+    .then((allProjects) => {
+        const projectArray = allProjects.data.results;
+        for (let z=0; z<projectArray.length; z++) {
+            let date = projectArray[z].publication_date.split(["T"])
+            let day = date[0]
+            let hour = date[1].split("Z")
+            hour = hour [0]
+            projectArray[z].publication_date = ({day: day, hour: hour})
+        } 
+        let previous;
+        let second = page +1;
+        let third = page +2;
+        let fourth = page +3;
+        let fifth = page +4;
+        let sixth = page +5;
+        let next = page + 6;
+        if (page > 1){
+            previous = page-1;
+            res.render('jobs/companyList', {jobs: projectArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
         } else {
-			User
-            .findById(req.user._id)
+            res.render('jobs/companyList', {jobs: projectArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+        }
+    })
+    .catch(err => console.log(err));  
+}) 
+
+router.post("/add-favorite", isLoggedIn ,(req, res) =>{
+    const query = { name, locations, publication_date_day, publication_date_hour, apiId, company } = req.body
+    const idToCheck = req.body.apiId;
+    console.log("ID:----------------------------------------->", idToCheck)
+        Job.find({apiId: idToCheck})
+	    .then (jobArray => {
+		if (jobArray.length === 0) {
+            console.log("No estoy repetido")
+            Job.create(query)
+            .then(result => {
+                console.log("Result: ", result)
+                User.findByIdAndUpdate(req.user._id, {$push : {favorites : result._id}})
+                .then(()=>{
+                    res.redirect("/profile");
+                })
+            })
+            .catch(err => console.log(err))
+        } else {
+            console.log("Si estoy repetido")
+			User.findById(req.user._id)
             .then((user)=>{
-                if (!user.favorites.includes(charArray[0]._id)){
-                    User
-                    .findByIdAndUpdate(req.user._id,{$push : {favorites : charArray[0]._id}})
+                if (!user.favorites.includes(jobArray[0]._id)){
+                    User.findByIdAndUpdate(req.user._id, {$push: {favorites : jobArray[0]._id}})
                     .then(()=>{
-                        res.redirect("/characters")
+                        res.redirect("/profile")
                     })
-                }else{res.redirect("/characters")}
+                }else{
+                res.redirect("/profile")
+                }
             })
             .catch((err)=>{
             console.log(err)
             })
-            
-            
-            
 		}
 	}) 
 })
 
 
 router.post("/delete-favorite",isLoggedIn,(req,res)=>{
-    const {id} = req.body
-    User.findByIdAndUpdate(req.user._id,{$pull : {favorites : id}})
+    const {apiId} = req.body
+    User.findByIdAndUpdate(req.user._id, {$pull : {favorites : apiId}})
     .then(()=>{
         res.redirect("/profile")
     })

@@ -20,8 +20,18 @@
     	{{this.name}}
 	</p>
 	{{/each}}
-    <p class="card-text">{{{job.contents}}}</p>
-	<a href="{{this.job.refs.landing_page}}" class="btn btn-primary">Apply to this job!</a>
+  <p class="card-text">{{{job.contents}}}</p>
+  <a href="{{this.job.refs.landing_page}}" class="btn btn-primary">Apply to this job!</a>
+
+  <form action = "/add-favorite" method="POST">
+        <input type="hidden" name="name" value="{{this.job.name}}">
+        <input type="hidden" name="locations" value="{{job.locations.[0].name}}">
+        <input type="hidden" name="publication_date_day" value="{{this.job.publication_date.day}}">
+        <input type="hidden" name="publication_date_hour" value="{{this.job.publication_date.hour}}">
+        <input type="hidden" name="apiId" value="{{this.job.id}}">
+        <input type="hidden" name="company" value="{{this.job.company.name}}">
+        <button type="submit">Save this job for later!</button> 
+  </form>
   </div>
   <div class="card-footer text-muted">
     Date published: {{job.publication_date.day}}, {{job.publication_date.hour}}

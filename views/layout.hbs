@@ -14,10 +14,15 @@
    <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">
+            <img id ="nav-image" src="/images/themuselogo.png" alt="" width="120" height="25" class="d-inline-block align-text-top">
+          </a>
+          <div>
+          <a class="nav-link" href="/auth/login">SIGN IN</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          </div>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -33,13 +38,35 @@
                 <a class="nav-link" href="/auth/signup">Signup</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/auth/login">Login</a>
+                <a class="nav-link" href="/auth/login">Sign in</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
       {{{body}}}
+          <footer class="dark-background footer">
+      <section>
+        <h5>©2021 Yoel Martin Inc.</h5>
+        <h5> Follow Us On </h5>
+        <ul>
+          <li> <a href="#"> Linkedin </a> </li>
+          <li> <a href="#"> Github </a> </li>
+        </ul>
+      </section>
+		<div class="mapouter">
+			<div class="gmap_canvas">
+				<iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=calle%20bolueta%201,%20hondarribia&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+				</iframe>
+				<a href="https://123movies-to.org"></a><br>
+				<style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}
+				</style>
+				<a href="https://www.embedgooglemap.net">embedding google maps</a>
+				<style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
+				</style>
+			</div>
+		</div>    		
+	</footer>
       <!-- JavaScript Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
       <script src="/js/script.js"></script>
@@ -47,8 +74,8 @@
 
 </html>
 
-<!--
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
- -->
+{{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+ --}}
+{{!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+ --}}

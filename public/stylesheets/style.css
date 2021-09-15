@@ -15,11 +15,37 @@ body {
 }
 
 a {
-  color: #00b7ff;
+  color: red;
 }
 
 h1 {
-  color: 15px;
+
+}
+
+.top {
+  background-image: src("/public/images/top.png");
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.top>h1{
+  color:green;
+  margin: 30px;
+}
+
+.top>h3{
+  color:green;
+  margin-bottom: 30px;
+}
+
+.searchbar{
+  margin-bottom: 30px;
+}
+
+.searchbar {
+  width: 70%;
 }
 
 .pagination {
@@ -66,4 +92,54 @@ h1 {
 
 .job-container{
   display: flex;
+}
+
+.navbar{
+
+}
+
+#nav-image{
+  border: 0px !important;
+  padding: 0px !important;
+  backgroung-color: black !important;
+}
+
+.footer {
+  font-size: 1.9em;
+  text-align: center;
+  padding: 40px 100px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.address {
+  font-size: 0.8em;
+  font-style: normal;
+  margin-bottom: 30px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer a {
+  color: rgb(67, 163, 230);
+  text-decoration: none;
+}
+
+/* modified for flexbox */
+#general-information {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* modified for flexbox */
+#general-information .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 370px;
 }

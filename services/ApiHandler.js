@@ -23,6 +23,10 @@ class CharactersApi {
   getCompanyJobs = (companyId, page) => {
     return this.api.get(`/jobs?company=${companyId}&page=${page}`)
   }
+
+  getProjectsBy = (url,page) => {
+    return this.api.get(`/jobs?${url}&page=${page}`)
+  }
 }
 
 

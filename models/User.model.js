@@ -7,8 +7,8 @@ const userSchema = new Schema({
   favorites:  [{	
     type: Schema.Types.ObjectId,
 		ref: "Job"
-  }]
-  //referencias de la bd characrters
+  }],
+  avatar: String
 });
 
 const User = model("User", userSchema);

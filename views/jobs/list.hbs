@@ -4,12 +4,117 @@
 
   <div class=`search`> 
     
-    <form action = "#" method="GET">
+    <form action="/search" method="POST" class="input-group">
+    
+    <input list="careers" name= "category" class="form-control rounded" placeholder="Find a career in..." aria-label="Search" aria-describedby="search-addon" />
+  				<datalist id="careers">
+            <option value="Accounting"></option>
+            <option value="Account Management/Customer Success"></option>
+            <option value="Corporate"></option>
+            <option value="Customer Service Career"></option>
+            <option value="Data Science"></option>
+            <option value="Design"></option>
+            <option value="Editor"></option>
+            <option value="Education"></option>
+            <option value="HR"></option>
+            <option value="IT"></option>
+            <option value="Law"></option>
+            <option value="Marketing"></option>
+            <option value="Mechanic"></option>
+            <option value="Mental Health"></option>
+            <option value="Nurses"></option>
+            <option value="Office Administration"></option>
+            <option value="Physical Assistant"></option>
+            <option value="Product"></option>
+            <option value="Project Management"></option>
+            <option value="Public Relations"></option>
+            <option value="Recruiting"></option>
+            <option value="Retail"></option>
+            <option value="Sales"></option>
+            <option value="Software Engineer"></option>
+            <option value="UX"></option>
+            <option value="Videography"></option>
+            <option value="Writer"></option>
+			  	</datalist>
+
+    <input list="companies" name= "company" class="form-control rounded" placeholder="In this company..." aria-label="Search" aria-describedby="search-addon" />
+          <datalist id="companies">
+            <option value="YipitData"></option>
+            <option value="Siemens"></option>
+            <option value="Labcorp"></option>
+            <option value="Amazon"></option>
+            <option value="Target"></option>
+            <option value="AT&T"></option>
+            <option value="Bristol Myers Squibb"></option>
+            <option value="Intel"></option>
+            <option value="Anheuser-Busch"></option>
+            <option value="Walmart"></option>
+            <option value="CVS Health"></option>
+            <option value="AbbVie"></option>
+            <option value="Salesforce"></option>
+            <option value="Broadridge"></option>
+            <option value="Facebook"></option>
+            <option value="Best Buy"></option>
+            <option value="Cerner"></option>
+            <option value="UnitedHealth Group"></option>
+            <option value="Capital One"></option>
+            <option value="Unilever"></option>
+            <option value="Dell Technologies"></option>
+            <option value="Intuit"></option>
+            <option value="Aramark"></option>
+            <option value="Guidewire"></option>
+            <option value="Banfield Pet Hospital"></option>
+            <option value="Affirm"></option>
+            <option value="The Home Depot"></option>
+          </datalist>
+
+    <input list="locations" name= "location" class="form-control rounded" placeholder="Around this area..." aria-label="Search" aria-describedby="search-addon" />
+          <datalist id="locations">
+            <option value="Madrid, Spain"></option>
+            <option value="Barcelona, Spain"></option>
+            <option value="Paris, France"></option>
+            <option value="London, United Kingdom"></option>
+            <option value="New York, NY"></option>
+            <option value="São Paulo, Brazil"></option>
+            <option value="Buenos Aires, Argentina"></option>
+            <option value="Milan, Italy "></option>
+            <option value="Tokyo, Japan"></option>
+            <option value="Donostia / San Sebastián, Spain"></option>
+            <option value="Bilbao, Spain"></option>
+            <option value="Berlin, Germany"></option>
+            <option value="Amsterdam, Netherlands"></option>
+            <option value="Prague, Czech Republic"></option>
+            <option value="Marrakesh, Morocco"></option>
+            <option value="Tel Aviv, Israel"></option>
+            <option value="Moskovskiy, Russia"></option>
+            <option value="Mumbai, India"></option>
+            <option value="Seattle, WA"></option>
+            <option value="Vancouver, Canada"></option>
+            <option value="Singapore"></option>
+            <option value="Shanghai, China"></option>
+            <option value="Sydney, Australia"></option>
+            <option value="Geneva, Switzerland"></option>
+            <option value="Dublin, Ireland"></option>
+            <option value="Munich, Germany"></option>
+            <option value="Hong Kong "></option>
+          </datalist>
+
+    <select class="form-select" name="level" aria-label="Default select example">
+      <option selected>Select Experience Level for the Job</option>
+      <option value="Entry Level">Entry Level</option>
+      <option value="Mid Level">Mid Level</option>
+      <option value="Senior Level">Senior Level</option>
+      <option value="Management">Management</option>
+      <option value="Internship">Internship</option>
+    </select>
+    
     <button type="submit" class="btn btn-outline-primary">Search!</button>
+    </form>
+
   </div>
 
+
   <div class='row row row-cols-1 row-cols-sm-2 row-cols-md-1 g-5 my-5' id="main">
-  {{!-- image name status --}}
     {{#each jobs}}
 
     <div class="card shadow-lg p-3 mb-5 bg-body rounded">
@@ -30,20 +135,6 @@
     {{/each}}    
    </div>
 </div>
-
-
-
-
-
-
-{{!--         <form action = "/add-favorite" method="POST">
-          <input type="hidden" name="name" value={{title}}>
-          <input type="hidden" name="status" value={{description}}>
-          <input type="hidden" name="species" value={{skills}}>
-          <input type="hidden" name="gender" value={{gender}}>
-          <input type="hidden" name="image" value={{image}}>
-          <input type="hidden" name="apiId" value={{id}}>
-          <button type="submit">Añadir a favoritos</button> --}}
 
 <nav aria-label="Page navigation example">
   <ul class="pagination">

@@ -1,10 +1,21 @@
 <h1>bienvenido {{user.username}}</h1>
-{{#each user.favorites}}
-<img src={{image}} alt={{name}}>
-<p>{{name}}</p>
-<form action = "/delete-favorite" method="POST">
-    <input type="hidden" name="id" value={{_id}}>
 
-<button type="submit">borrar favorito</button>
-</form>
+{{#each user.favorites}}
+<div class="card shadow-lg p-3 mb-5 bg-body rounded">
+      <div class="card-header">
+        {{locations}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">{{company}}</p>
+        <form action = "/jobs/{{id}}" method="GET">
+        <button type="submit" class="btn btn-outline-primary">Show more</button>
+        </form>
+      </div>
+         <div class="card-footer text-muted">
+            Date published: {{publication_date_day}}, {{publication_date_hour}}
+         </div>
+      </div>
 {{/each}}
+
+<a class="nav-link" href="/logout">logout in the street</a>
