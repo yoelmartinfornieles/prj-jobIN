@@ -15,6 +15,7 @@ const jobSchema = new Schema(
 );
 
 jobSchema.pre("save", function(next) {
+  console.log("this: ", this)
 
   const nameToUpper = this.name.split(' ').map(word => word[0].toUpperCase() + word.slice(1).toLowerCase()).join(' ')
 

@@ -9,69 +9,71 @@
       <!-- CSS only -->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
       <link rel="stylesheet" href="/stylesheets/style.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet"> 
    </head>
-
    <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+      <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img id ="nav-image" src="/images/themuselogo.png" alt="" width="120" height="25" class="d-inline-block align-text-top">
-          </a>
-          <div>
-          <a class="nav-link" href="/auth/login">SIGN IN</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <div class>
+            <a class="navbar-brand" href="/">
+              <img id ="nav-image" src="/images/logo.png" alt="" width="95" height="55" class="d-inline-block align-text-top">
+            </a>
           </div>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+          <div class = "d-flex">
+            <a class="nav-link" href="/auth/login">SIGN IN</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div> 
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="navlink active" aria-current="page" href="/">HOME</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/projectList/1">Projects</a>
+                <a class="navlink active" href="/projectList/1">JOBS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/profile">Profile</a>
+                <a class="navlink active" href="#">TODO ----> COMPANIES</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/auth/signup">Signup</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/auth/login">Sign in</a>
-              </li>
-            </ul>
+          </ul>
+          <div class="btn-container">
+            <div class="profile-btn">
+              <a class="nav-link" href="/profile">PROFILE</a>
+            </div>
+            <div class="profile-btn">
+              <a class="nav-link" href="/auth/login">LOGIN</a>
+            </div>
+            <div class="profile-btn">
+              <a class="nav-link" href="/auth/signup">REGISTER</a>
+            </div>
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
       {{{body}}}
-          <footer class="dark-background footer">
-      <section>
-        <h5>©2021 Yoel Martin Inc.</h5>
-        <h5> Follow Us On </h5>
-        <ul>
-          <li> <a href="#"> Linkedin </a> </li>
-          <li> <a href="#"> Github </a> </li>
-        </ul>
-      </section>
-		<div class="mapouter">
-			<div class="gmap_canvas">
-				<iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=calle%20bolueta%201,%20hondarribia&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-				</iframe>
-				<a href="https://123movies-to.org"></a><br>
-				<style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}
-				</style>
-				<a href="https://www.embedgooglemap.net">embedding google maps</a>
-				<style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
-				</style>
-			</div>
-		</div>    		
-	</footer>
-      <!-- JavaScript Bundle with Popper -->
+		  <footer class="bg-dark">
+        <div class="footer-message">
+			    <p><span>©</span>oded by Yoel Martin Fornieles. All rights reserved. Especial thanks to the IH team.</p>
+        </div>
+        <div class="links">
+					<div>
+					  <a class ="social" href="https://www.linkedin.com/in/yoel-martin-fornieles-874a33122/">
+						  <img class="social-links" src="https://raw.githubusercontent.com/yoelmartinfornieles/prj-dbzArkanoid/main/assets/web/icons8-linkedin-64.png">
+					  </a>
+					</div>
+					<div>
+					  <a class ="social" href="https://github.com/yoelmartinfornieles">
+						  <img class="social-links" src="https://raw.githubusercontent.com/yoelmartinfornieles/prj-dbzArkanoid/main/assets/web/icons8-github.gif">
+					  </a>
+				  </div>
+				</div>
+		  </footer>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
       <script src="/js/script.js"></script>
    </body>
-
 </html>
 
 
