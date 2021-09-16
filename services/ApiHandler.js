@@ -12,6 +12,10 @@ class CharactersApi {
     return this.api.get(`/jobs?page=${page}`);
   }
 
+  getAllCompanies = (page) => {
+    return this.api.get(`/companies?page=${page}`);
+  }
+
   getProjectById = (id) => {
     return this.api.get(`/jobs/${id}`)
   }
@@ -26,6 +30,10 @@ class CharactersApi {
 
   getProjectsBy = (url,page) => {
     return this.api.get(`/jobs?${url}&page=${page}`)
+  }
+
+  getCompaniesBy = (url,page) => {
+    return this.api.get(`/companies?${url}&page=${page}`)
   }
 }
 

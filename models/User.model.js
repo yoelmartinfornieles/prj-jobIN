@@ -8,7 +8,8 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
 		ref: "Job"
   }],
-  avatar: String
+  avatar: String,
+  ollas: String
 });
 
 const User = model("User", userSchema);

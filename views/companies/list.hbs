@@ -1,0 +1,134 @@
+<div class="page-container">
+
+  <h1>Company list</h1>
+
+  <div class='container'>
+
+    <div class=`search`> 
+      
+      <form action="/searchCompany" method="POST" class="input-group">
+      
+      <input list="industries" name= "industry" class="form-control rounded" placeholder="Industry" aria-label="Search" aria-describedby="search-addon" />
+            <datalist id="industries">
+              <option value="Advertising and Agencies"></option>
+              <option value="Architecture"></option>
+              <option value="Arts and Music"></option>
+              <option value="Biotechnology"></option>
+              <option value="Client Services"></option>
+              <option value="Consulting"></option>
+              <option value="Consumer"></option>
+              <option value="Education"></option>
+              <option value="Engineering"></option>
+              <option value="Entertainment & Gaming"></option>
+              <option value="Fashion and Beauty"></option>
+              <option value="Finance"></option>
+              <option value="Food & Beverage"></option>
+              <option value="Government"></option>
+              <option value="Healthcare"></option>
+              <option value="Insurance"></option>
+              <option value="Law"></option>
+              <option value="Manufacturing"></option>
+              <option value="Media"></option>
+              <option value="Real Estate & Construction"></option>
+              <option value="Social Good"></option>
+              <option value="Social Media"></option>
+              <option value="Tech"></option>
+              <option value="Telecom"></option>
+              <option value="Travel and Hospitality"></option>
+            </datalist>
+
+      <input list="locations" name= "location" class="form-control rounded" placeholder="Around this area..." aria-label="Search" aria-describedby="search-addon" />
+            <datalist id="locations">
+              <option value="Madrid, Spain"></option>
+              <option value="Barcelona, Spain"></option>
+              <option value="Paris, France"></option>
+              <option value="London, United Kingdom"></option>
+              <option value="New York, NY"></option>
+              <option value="São Paulo, Brazil"></option>
+              <option value="Buenos Aires, Argentina"></option>
+              <option value="Milan, Italy "></option>
+              <option value="Tokyo, Japan"></option>
+              <option value="Donostia / San Sebastián, Spain"></option>
+              <option value="Bilbao, Spain"></option>
+              <option value="Berlin, Germany"></option>
+              <option value="Amsterdam, Netherlands"></option>
+              <option value="Prague, Czech Republic"></option>
+              <option value="Marrakesh, Morocco"></option>
+              <option value="Tel Aviv, Israel"></option>
+              <option value="Moskovskiy, Russia"></option>
+              <option value="Mumbai, India"></option>
+              <option value="Seattle, WA"></option>
+              <option value="Vancouver, Canada"></option>
+              <option value="Singapore"></option>
+              <option value="Shanghai, China"></option>
+              <option value="Sydney, Australia"></option>
+              <option value="Geneva, Switzerland"></option>
+              <option value="Dublin, Ireland"></option>
+              <option value="Munich, Germany"></option>
+              <option value="Hong Kong "></option>
+            </datalist>
+
+      <select class="form-select" name="size" aria-label="Default select example">
+        <option selected value="Small Size">Small Size</option>
+        <option value="Medium Size">Medium Size</option>
+        <option value="Large Size">Large Size</option>
+      </select>
+      
+      <button type="submit" class="btn btn-outline-primary">Search!</button>
+      </form>
+
+    </div>  
+
+    <div class='row row row-cols-1 row-cols-sm-2 row-cols-md-1 g-5 my-5' id="main">
+      {{#if companies}}
+        {{#each companies}}
+
+        <div class="card shadow-lg p-3 mb-5 bg-body rounded"  style="width: 16rem;">
+          <div class="card-header">
+            {{industries.[0].name}}
+          </div class="card-img-top">
+            <img src="{{refs.f1_image}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">{{size.name}}</p>
+            <form action = "/company/{{id}}" method="GET">
+            <button type="submit" class="btn btn-outline-primary">More info</button>
+            </form>
+          </div>
+            <div class="card-footer text-muted">
+                Main Location: {{locations.[0].name}}
+            </div>
+          </div>
+        {{/each}}
+      {{else}}
+        <div class = "error-message">
+          <p>Oops! There are no results for your search... Try Again and keep on Style!</p>
+        </div>    
+      {{/if}}
+    </div>
+  </div>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        {{#if previous}}
+        <a id= "prev" class="page-link" href="/projectList/{{previous}}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+        {{/if}}
+      </li>
+      <li class="page-item active"><a class="page-link" href="/projectList/{{page}}">{{page}}</a></li>
+      <li class="page-item"><a class="page-link" href="/projectList/{{second}}">{{second}}</a></li>
+      <li class="page-item"><a class="page-link" href="/projectList/{{third}}">{{third}}</a></li>
+      <li class="page-item"><a class="page-link" href="/projectList/{{fourth}}">{{fourth}}</a></li>
+      <li class="page-item"><a class="page-link" href="/projectList/{{fifth}}">{{fifth}}</a></li>
+      <li class="page-item"><a class="page-link" href="/projectList/{{sixth}}">{{sixth}}</a></li>
+      <li class="page-item">
+        <a class="page-link" href="/projectList/{{next}}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</div>

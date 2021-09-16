@@ -37,6 +37,29 @@ router.get('/projectList/:page',(req, res)=>{
     .catch(err => console.log(err));
 })
 
+router.get('/companyList/:page',(req, res)=>{
+    let page = Number(req.params.page);
+    themuseAPI
+    .getAllCompanies(page)
+    .then((allCompanies) => {
+        const companyArray = allCompanies.data.results;
+        let previous;
+        let second = page +1;
+        let third = page +2;
+        let fourth = page +3;
+        let fifth = page +4;
+        let sixth = page +5;
+        let next = page + 6;
+        if (page > 1){
+            previous = page-1;
+            res.render('companies/list', {companies: companyArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+        } else {
+            res.render('companies/list', {companies: companyArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+        }
+    })
+    .catch(err => console.log(err));
+})
+
 router.get(`/jobs/:id`,(req, res) => {
     let projectId = req.params.id;
     themuseAPI
@@ -51,11 +74,19 @@ router.get(`/jobs/:id`,(req, res) => {
         themuseAPI
         .getCompanyData(companyId)
         .then((company) =>{ 
-            //console.log("hemen duzu: ", company)
             project.data.publication_date = ({day: day, hour: hour})
             res.render ("jobs/job", {job: project.data, company: company.data})
         });
     })
+})
+
+router.get(`/company/:id`,(req, res) => {
+    let companyId = req.params.id;
+    themuseAPI
+    .getCompanyData (companyId)
+    .then((company) => { 
+        res.render ("companies/company", {company: company.data})
+    });
 })
 
 router.get(`/jobs/company/:id/:page`, (req, res) => {
@@ -129,9 +160,50 @@ router.post('/search', (req, res) => {
         let next = page + 6;
         if (page > 1){
             previous = page-1;
-            res.render('jobs/companyList', {jobs: projectArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+            res.render('jobs/list', {jobs: projectArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
         } else {
-            res.render('jobs/companyList', {jobs: projectArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+            res.render('jobs/list', {jobs: projectArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+        }
+    })
+    .catch(err => console.log(err));  
+}) 
+
+router.post('/searchCompany', (req, res) => {
+    let url="";
+    let bodyArray = Object.values(req.body)
+    let index= 0;
+    let firstPart = true;
+    for(variable in req.body){
+        if (bodyArray[index]){
+            console.log ("variable: ", bodyArray[index])
+            let key = variable
+            if (firstPart){
+                url=`${key}`+"="+`${bodyArray[index]}`;
+                firstPart = false;
+            } else {
+                url+="&"+`${key}`+"="+`${bodyArray[index]}`;
+            }
+        }
+        index ++;
+    }
+    console.log("url: ", url)
+    let page=1;
+    themuseAPI
+    .getCompaniesBy(url,page)
+    .then((allCompanies) => {
+        const companyArray = allCompanies.data.results;
+        let previous;
+        let second = page +1;
+        let third = page +2;
+        let fourth = page +3;
+        let fifth = page +4;
+        let sixth = page +5;
+        let next = page + 6;
+        if (page > 1){
+            previous = page-1;
+            res.render('companies/list', {companies: companyArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+        } else {
+            res.render('companies/list', {companies: companyArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
         }
     })
     .catch(err => console.log(err));  

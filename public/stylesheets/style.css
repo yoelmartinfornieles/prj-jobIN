@@ -241,6 +241,24 @@ body {
   padding-top: 70px;
 }
 
+.profile-container {
+  padding-top: 70px;
+  display: flex;
+}
+
+.user-profile {
+  background-color: cyan;
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+  z-index: 2;
+}
+
+.fav-list {
+  margin-left: 30%;
+  min-height: 800px;;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -253,6 +271,10 @@ body {
 .card {
   padding: 0px !important;
   margin: 10px 30px !important;
+}
+
+.card-img-top>img {
+  width: 100%;
 }
 
 #main{
@@ -294,7 +316,6 @@ body {
 #nav-image{
   border: 0px !important;
   padding: 0px !important;
-  backgroung-color: black !important;
 }
 
 footer {
@@ -304,6 +325,9 @@ footer {
   padding: 0px;
   height: auto;;
   padding-bottom: 20px;
+  position: absolute;
+  z-index: 50;
+  width: 100%;
 }
 
 .footer-message {
@@ -316,6 +340,10 @@ footer {
   padding-top: 20px;
   text-align: center;
   justify-content: center;
+}
+
+.footer-message>p>span{
+  font-size: 18px;
 }
 
 .links {
