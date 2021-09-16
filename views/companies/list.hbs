@@ -1,10 +1,8 @@
 <div class="page-container">
 
-  <h1>Company list</h1>
-
   <div class='container'>
 
-    <div class=`search`> 
+    <div class="search"> 
       
       <form action="/searchCompany" method="POST" class="input-group">
       
@@ -69,12 +67,13 @@
             </datalist>
 
       <select class="form-select" name="size" aria-label="Default select example">
-        <option selected value="Small Size">Small Size</option>
+        <option selected disabled>Select a Company Size</option>
+        <option value="Small Size">Small Size</option>
         <option value="Medium Size">Medium Size</option>
         <option value="Large Size">Large Size</option>
       </select>
       
-      <button type="submit" class="btn btn-outline-primary">Search!</button>
+      <button type="submit" class="btn btn-outline-warning btn-lg">Search!</button>
       </form>
 
     </div>  

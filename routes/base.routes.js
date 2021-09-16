@@ -3,7 +3,8 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
 
 router.get("/", (req, res, next) => {
-  res.render("index");
+  let loggedIn = req.session.user;
+  res.render("index", {loggedIn});
 });
 
 router.get("/profile", isLoggedIn, (req, res, next) =>{
@@ -11,13 +12,15 @@ router.get("/profile", isLoggedIn, (req, res, next) =>{
   User.findById(req.user._id)
   .populate('favorites')
   .then((user) => {
-    res.render("profile", {user: user});
+    let loggedIn = req.session.user;
+    res.render("profile", {user: user, loggedIn: loggedIn});
   })  
 })
 
 router.get("/edit", isLoggedIn, (req, res, next) => {
-    let user = req.session.currentUser;
-    res.render ("edit", {user})
+    let user = req.session.user;
+    let loggedIn = req.session.user;
+    res.render ("edit", {user: user, loggedIn: loggedIn});
 })
 
 router.get("/logout", (req,res,next) => {

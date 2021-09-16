@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 const alert = require("alert");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const Job = require("../models/Job.model");
@@ -27,11 +26,12 @@ router.get('/projectList/:page',(req, res)=>{
         let fifth = page +4;
         let sixth = page +5;
         let next = page + 6;
+        let loggedIn = req.session.user;
         if (page > 1){
             previous = page-1;
-            res.render('jobs/list', {jobs: projectArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+            res.render('jobs/list', {jobs: projectArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
         } else {
-            res.render('jobs/list', {jobs: projectArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+            res.render('jobs/list', {jobs: projectArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
         }
     })
     .catch(err => console.log(err));
@@ -50,11 +50,12 @@ router.get('/companyList/:page',(req, res)=>{
         let fifth = page +4;
         let sixth = page +5;
         let next = page + 6;
+        let loggedIn = req.session.user;
         if (page > 1){
             previous = page-1;
-            res.render('companies/list', {companies: companyArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+            res.render('companies/list', {companies: companyArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
         } else {
-            res.render('companies/list', {companies: companyArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+            res.render('companies/list', {companies: companyArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
         }
     })
     .catch(err => console.log(err));
@@ -74,8 +75,9 @@ router.get(`/jobs/:id`,(req, res) => {
         themuseAPI
         .getCompanyData(companyId)
         .then((company) =>{ 
+            let loggedIn = req.session.user;
             project.data.publication_date = ({day: day, hour: hour})
-            res.render ("jobs/job", {job: project.data, company: company.data})
+            res.render ("jobs/job", {job: project.data, company: company.data, loggedIn: loggedIn})
         });
     })
 })
@@ -85,7 +87,8 @@ router.get(`/company/:id`,(req, res) => {
     themuseAPI
     .getCompanyData (companyId)
     .then((company) => { 
-        res.render ("companies/company", {company: company.data})
+        let loggedIn = req.session.user;
+        res.render ("companies/company", {company: company.data, loggedIn: loggedIn})
     });
 })
 
@@ -110,11 +113,12 @@ router.get(`/jobs/company/:id/:page`, (req, res) => {
         let fifth = page +4;
         let sixth = page +5;
         let next = page + 6;
+        let loggedIn = req.session.user;
         if (page > 1){
             previous = page-1;
-            res.render('jobs/companyList', {jobs: projectArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+            res.render('jobs/companyList', {jobs: projectArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
         } else {
-            res.render('jobs/companyList', {jobs: projectArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+            res.render('jobs/companyList', {jobs: projectArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
         }
     })
     .catch(err => console.log(err));
@@ -158,11 +162,12 @@ router.post('/search', (req, res) => {
         let fifth = page +4;
         let sixth = page +5;
         let next = page + 6;
+        let loggedIn = req.session.user;
         if (page > 1){
             previous = page-1;
-            res.render('jobs/list', {jobs: projectArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+            res.render('jobs/list', {jobs: projectArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
         } else {
-            res.render('jobs/list', {jobs: projectArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+            res.render('jobs/list', {jobs: projectArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
         }
     })
     .catch(err => console.log(err));  
@@ -199,11 +204,12 @@ router.post('/searchCompany', (req, res) => {
         let fifth = page +4;
         let sixth = page +5;
         let next = page + 6;
+        let loggedIn = req.session.user;
         if (page > 1){
             previous = page-1;
-            res.render('companies/list', {companies: companyArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+            res.render('companies/list', {companies: companyArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
         } else {
-            res.render('companies/list', {companies: companyArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth})
+            res.render('companies/list', {companies: companyArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
         }
     })
     .catch(err => console.log(err));  
@@ -212,7 +218,6 @@ router.post('/searchCompany', (req, res) => {
 router.post("/add-favorite", isLoggedIn ,(req, res) =>{
     const query = { name, locations, publication_date_day, publication_date_hour, apiId, company } = req.body
     const idToCheck = req.body.apiId;
-    console.log("ID:----------------------------------------->", idToCheck)
         Job.find({apiId: idToCheck})
 	    .then (jobArray => {
 		if (jobArray.length === 0) {
@@ -255,12 +260,5 @@ router.post("/delete-favorite",isLoggedIn,(req,res)=>{
     })
     .catch(err => console.log(err))
 })
-
-/**
- * ---arrays
-{ field: { $in: [ value1, value2, ..... , valueN ] } }
-{ field: { $nin: [ value1, value2, ..... , valueN ] } }
-{ field: { $all: [ value1, value2, ..... , valueN ] } }
- */ 
 
 module.exports = router;

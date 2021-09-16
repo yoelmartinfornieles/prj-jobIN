@@ -5,6 +5,10 @@
   font-family: Barlow Semi Condensed,Helvetica,sans-serif;
   font-weight: 600;
 }
+*>input:focus, select:focus {
+  box-shadow: 0px 0px 5px rgb(255, 187, 1) !important;
+  border: 1px solid rgb(255, 187, 1) !important;
+}
 
 .hide {
   display: none;
@@ -23,7 +27,8 @@
 
 .btn-container {
   display:flex;
-  justify-content: space-between;
+  justify-content: space-around !important;
+  width: 100vw !important;
 }
 
 .nav-link {
@@ -93,6 +98,8 @@ body {
   align-items: center;
   width:100%;
   height:600px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .top>h1{
@@ -219,6 +226,12 @@ body {
   font-weight: bold;
 }
 
+.company>div>img {
+  max-width: 30vw;
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  border-radius: 3px;
+}
+
 .nav-link-dark {
   text-decoration: none;
   background-color: rgb(247,194,68) !important;
@@ -237,8 +250,12 @@ body {
   font-size: 1.2em;
 }
 
+.search {
+  margin-top: 10px;
+}
+
 .page-container {
-  padding-top: 70px;
+  padding-top: 71px;
 }
 
 .profile-container {

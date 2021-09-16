@@ -8,8 +8,11 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
 		ref: "Job"
   }],
-  avatar: String,
-  ollas: String
+  avatar: {type: String, default: "images/defaultAvatar.webp"},
+  ollas: String,
+  studies: [String],
+  experience: [String],
+  skills: [String]
 });
 
 const User = model("User", userSchema);

@@ -1,5 +1,5 @@
 <div class="job-container">
-  <div id = "job" class="card text-center">
+  <div id = "job" class="card text-center shadow-lg">
     {{#each this.job.locations}}
     <div class="card-header">
       {{this.name}}
@@ -53,6 +53,8 @@
     <div class="card-body">
       <a href="/jobs/company/{{company.name}}/1" class="card-link">Job offers from this company</a>
       <a href="{{company.refs.landing_page}}" class="card-link">Landing page</a>
+      <form action = "/company/{{company.id}}" method="GET">
+      <button type="submit" class="btn btn-outline-primary">More info</button>
     </div>
   </div>
 </div>

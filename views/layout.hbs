@@ -22,7 +22,7 @@
             </a>
           </div>
           <div class = "d-flex">
-            <a class="nav-link" href="/auth/login">SIGN IN</a>
+            <a class="nav-link" id="signin-button" href="/auth/login">SIGN IN</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -36,18 +36,21 @@
                 <a class="navlink active" href="/projectList/1">JOBS</a>
               </li>
               <li class="nav-item">
-                <a class="navlink active" href="#">TODO ----> COMPANIES</a>
+                <a class="navlink active" href="/companyList/1">COMPANIES</a>
               </li>
           </ul>
           <div class="btn-container">
             <div class="profile-btn">
-              <a class="nav-link" href="/profile">PROFILE</a>
+              <a class="nav-link hide" id="profile-button" href="/profile">PROFILE</a>
             </div>
             <div class="profile-btn">
-              <a class="nav-link" href="/auth/login">LOGIN</a>
+              <a class="nav-link" id="login-button" href="/auth/login">LOGIN</a>
             </div>
             <div class="profile-btn">
-              <a class="nav-link" href="/auth/signup">REGISTER</a>
+              <a class="nav-link" id="register-button" href="/auth/signup">REGISTER</a>
+            </div>
+            <div class="profile-btn">
+              <a class="nav-link hide" id="logout-button" href="/logout">LOGOUT</a>
             </div>
           </div>
         </div>
@@ -55,6 +58,9 @@
     </nav>
       {{{body}}}
 		  <footer class="bg-dark">
+        {{#if loggedIn}}
+          <p class="hide" id="logged">Logged in</p>
+        {{/if}}
         <div class="footer-message">
 			    <p><span>©</span>oded by Yoel Martin Fornieles. All rights reserved. Especial thanks to the IH team.</p>
         </div>

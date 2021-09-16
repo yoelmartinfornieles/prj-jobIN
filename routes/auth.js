@@ -15,21 +15,24 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/signup", isLoggedOut, (req, res) => {
-  res.render("auth/signup");
+  let loggedIn = req.session.user;
+  res.render("auth/signup", {loggedIn});
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
   const { username, password, ollas } = req.body;
 
   if (!username) {
+    let loggedIn = req.session.user;
     return res
       .status(400)
-      .render("auth/signup", { errorMessage: "Please provide your username." });
+      .render("auth/signup", { errorMessage: "Please provide your username.", loggedIn: loggedIn });
   }
 
   if (password.length < 8) {
+    let loggedIn = req.session.user;
     return res.status(400).render("auth/signup", {
-      errorMessage: "Your password needs to be at least 8 characters long.",
+      errorMessage: "Your password needs to be at least 8 characters long.", loggedIn: loggedIn
     });
   }
 
@@ -49,9 +52,10 @@ router.post("/signup", isLoggedOut, (req, res) => {
   User.findOne({ username }).then((found) => {
     // If the user is found, send the message username is taken
     if (found) {
+      let loggedIn = req.session.user;
       return res
         .status(400)
-        .render("auth/signup", { errorMessage: "Username already taken." });
+        .render("auth/signup", { errorMessage: "Username already taken.", loggedIn: loggedIn});
     }
 
     // if user is not found, create a new user - start with hashing the password
@@ -72,9 +76,10 @@ router.post("/signup", isLoggedOut, (req, res) => {
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
+          let loggedIn = req.session.user;
           return res
             .status(400)
-            .render("auth/signup", { errorMessage: error.message });
+            .render("auth/signup", { errorMessage: error.message, loggedIn: loggedIn});
         }
         if (error.code === 11000) {
           return res.status(400).render("auth/signup", {
@@ -82,9 +87,10 @@ router.post("/signup", isLoggedOut, (req, res) => {
               "Username need to be unique. The username you chose is already in use.",
           });
         }
+        let loggedIn = req.session.user;
         return res
           .status(500)
-          .render("auth/signup", { errorMessage: error.message });
+          .render("auth/signup", { errorMessage: error.message, loggedIn: loggedIn});
       });
   });
 });
@@ -97,9 +103,10 @@ router.post("/login", isLoggedOut, (req, res, next) => {
   const { username, password } = req.body;
 
   if (!username) {
+    let loggedIn = req.session.user;
     return res
       .status(400)
-      .render("auth/login", { errorMessage: "Please provide your username." });
+      .render("auth/login", { errorMessage: "Please provide your username." , loggedIn: loggedIn});
   }
 
   // Here we use the same logic as above
@@ -115,17 +122,19 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     .then((user) => {
       // If the user isn't found, send the message that user provided wrong credentials
       if (!user) {
+        let loggedIn = req.session.user;
         return res
           .status(400)
-          .render("auth/login", { errorMessage: "Wrong credentials." });
+          .render("auth/login", { errorMessage: "Wrong credentials.", loggedIn: loggedIn});
       }
 
       // If user is found based on the username, check if the in putted password matches the one saved in the database
       bcrypt.compare(password, user.password).then((isSamePassword) => {
         if (!isSamePassword) {
+          let loggedIn = req.session.user;
           return res
             .status(400)
-            .render("auth/login", { errorMessage: "Wrong credentials." });
+            .render("auth/login", { errorMessage: "Wrong credentials.", loggedIn: loggedIn});
         }
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
@@ -137,16 +146,18 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       // in this case we are sending the error handling to the error handling middleware that is defined in the error handling file
       // you can just as easily run the res.status that is commented out below
       next(err);
-      return res.status(500).render("login", { errorMessage: err.message });
+      let loggedIn = req.session.user;
+      return res.status(500).render("login", { errorMessage: err.message, loggedIn: loggedIn});
     });
 });
 
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
+      let loggedIn = req.session.user;
       return res
         .status(500)
-        .render("auth/logout", { errorMessage: err.message });
+        .render("auth/logout", { errorMessage: err.message, loggedIn: loggedIn});
     }
     res.redirect("/");
   });
