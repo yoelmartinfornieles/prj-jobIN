@@ -57,7 +57,7 @@ module.exports = (app) => {
       resave: false,
       saveUninitialized: false,
       store: MongoStore.create({
-        mongoUrl: MONGO_URI,
+        mongoUrl: process.env.DB_REMOTE,
       }),
     })
   );
