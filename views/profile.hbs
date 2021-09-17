@@ -1,22 +1,30 @@
 <div class="profile-container">
   <div class="user-profile">
     <div>
-      <h1>Welcome {{user.username}}</h1>
+      <h1>{{user.username}}</h1>
     </div>
     <div class="avatar">
       <img src="{{user.avatar}}">
     </div>
     <div class="user-info">
-      <p>paja</p>
+      <p>E-mail: {{user.email}}</p>
     </div>
     <div class="user-info">
-      <p>paja</p>
+      <p>Studies: [{{user.studies}}] </p>
     </div>
-        <div class="profile-btn">
-      <a class="nav-link" href="/edit">EDIT PROFILE</a>
+    <div class="user-info">
+      <p>Experience: {{user.experience}}</p>
     </div>
-    <div class="profile-btn">
-      <a class="nav-link" href="/logout">LOGOUT</a>
+    <div class="user-info">
+      <p>Skills: {{user.skills}}</p>
+    </div>
+    <div class = "btn-box">
+      <div class="profile-btn">
+        <a class="nav-link" href="/edit">EDIT PROFILE</a>
+      </div>
+      <div class="profile-btn">
+        <a class="nav-link" href="/logout">LOGOUT</a>
+      </div>
     </div>
   </div>
 
@@ -29,19 +37,21 @@
           <div class="card-body">
             <h5 class="card-title">{{name}}</h5>
             <p class="card-text">{{company}}</p>
-            <form action = "/jobs/{{this.apiId}}" method="GET">
-              <button type="submit" class="btn nav-link-dark">Show more</button>
-            </form>
-            <form action = "/delete-favorite" method="POST">
-              <input type="hidden" name="name" value="{{this.name}}">
-              <input type="hidden" name="locations" value="{{this.locations.[0].name}}">
-              <input type="hidden" name="publication_date_day" value="{{this.publication_date.day}}">
-              <input type="hidden" name="publication_date_hour" value="{{this.publication_date.hour}}">
-              <input type="hidden" name="apiId" value="{{this.id}}">
-              <input type="hidden" name="company" value="{{this.company.name}}">
-              <button class = "btn nav-link-dark" type="submit">Delete this job</button> 
-          </form>
-          </div>
+            <div class="button-box">
+              <form action = "/jobs/{{this.apiId}}" method="GET">
+                <button type="submit" class="btn nav-link-dark">Show more</button>
+              </form>
+              <form action = "/delete-favorite" method="POST">
+                <input type="hidden" name="name" value="{{this.name}}">
+                <input type="hidden" name="locations" value="{{this.locations.[0].name}}">
+                <input type="hidden" name="publication_date_day" value="{{this.publication_date.day}}">
+                <input type="hidden" name="publication_date_hour" value="{{this.publication_date.hour}}">
+                <input type="hidden" name="apiId" value="{{this.id}}">
+                <input type="hidden" name="company" value="{{this.company.name}}">
+                <button class = "btn btn-x nav-link-dark" type="submit">Delete this job</button> 
+              </form>
+              </div>
+            </div>
             <div class="card-footer text-muted">
                 Date published: {{publication_date_day}}, {{publication_date_hour}}
             </div>

@@ -1,19 +1,33 @@
-<div class = "page-container">
-   <form action="/update" method="POST">
-      <label> Username
-         <input type="text" name="username">
-      </label>
-      <label> Password
-         <input type="password" name="password">
-      </label>
-      <label> Ollas
-         <input type="ollas" name="ollas">
-      </label>
-
-      <button type="submit">Submit</button>
-   </form>
-
+<div class="page-container">
+  <div class="form">      
+    <div class="tab-content">        
+      <div id="login">   
+        <h1 class="main-message">Edit profile</h1>   
+         <form class="login" action="/update" method="POST">
+            <div class="field-wrap">
+               <p>Please fill in the details to create an account with us.</p>
+               <hr>
+               <label for="username"><b>Enter Username</b></label>
+               <input value="{{user.username}}" class="form-control" type="text" placeholder="Username" name="username">
+               <label for="email"><b>Enter email</b></label>
+               <input value="{{user.email}}" class="form-control" type="text" placeholder="Email" name="email">
+               <label for="studies"><b>Enter studies</b></label>
+               <input value="{{user.studies}}" class="form-control" type="text" placeholder="Studies" name="studies">
+               <label for="experience"><b>Enter experience</b></label>
+               <input value="{{user.experience}}" class="form-control" type="text" placeholder="Experience" name="experience">
+               <label for="skills"><b>Enter skills</b></label>
+               <input value="{{user.skills}}" class="form-control" type="text" placeholder="Skills" name="skills">
+               <label for="avatar"><b>Enter your avatar URL</b></label>
+               <input value="{{user.avatar}}" class="form-control" type="text" placeholder="URL" name="avatar">
+               <hr>
+               <button type="submit" class="btn btn-x btn-outline-warning btn-md registerbtn"><strong>Submit</strong></button>
+               </div>
+            </div>
+         </form>
+        </div>    
+      </div>    
+   </div>
    {{#if errorMessage}}
-   <p class="error">{{errorMessage}}</p>
+      <p class="error">{{errorMessage}}</p>
    {{/if}}
 </div>

@@ -4,15 +4,15 @@ const { Schema, model } = require("mongoose");
 const userSchema = new Schema({
   username: String,
   password: String,
+  email: String,
   favorites:  [{	
     type: Schema.Types.ObjectId,
 		ref: "Job"
   }],
-  avatar: {type: String, default: "images/defaultAvatar.webp"},
-  ollas: String,
-  studies: [String],
-  experience: [String],
-  skills: [String]
+  avatar: {type: String, default: "images/defaultAvatar.png"},
+  studies: String,
+  experience: String,
+  skills: String
 });
 
 const User = model("User", userSchema);

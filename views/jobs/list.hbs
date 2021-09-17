@@ -2,8 +2,7 @@
 
   <div class='container'>
 
-    <div class=`search`> 
-      
+    <div class="search"> 
       <form action="/search" method="POST" class="input-group">
       
       <input list="careers" name= "category" class="form-control rounded" placeholder="Find a career in..." aria-label="Search" aria-describedby="search-addon" />
@@ -108,7 +107,7 @@
         <option value="Internship">Internship</option>
       </select>
       
-      <button type="submit" class="btn btn-outline-primary">Search!</button>
+      <button type="submit" class="btn btn-outline-warning btn-lg">Search!</button>
       </form>
 
     </div>
@@ -125,7 +124,7 @@
           <h5 class="card-title">{{name}}</h5>
           <p class="card-text">{{company.name}}</p>
           <form action = "/jobs/{{id}}" method="GET">
-          <button type="submit" class="btn btn-outline-primary">Show more</button>
+          <button type="submit" class="btn btn-warning btn-md">Show more</button>
           </form>
         </div>
           <div class="card-footer text-muted">
@@ -133,6 +132,28 @@
           </div>
         </div>
       {{/each}}    
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            {{#if previous}}
+            <a id= "prev" class="page-link" href="/projectList/{{previous}}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+            {{/if}}
+          </li>
+          <li class="page-item active"><a class="page-link" href="/projectList/{{page}}">{{page}}</a></li>
+          <li class="page-item"><a class="page-link" href="/projectList/{{second}}">{{second}}</a></li>
+          <li class="page-item"><a class="page-link" href="/projectList/{{third}}">{{third}}</a></li>
+          <li class="page-item"><a class="page-link" href="/projectList/{{fourth}}">{{fourth}}</a></li>
+          <li class="page-item"><a class="page-link" href="/projectList/{{fifth}}">{{fifth}}</a></li>
+          <li class="page-item"><a class="page-link" href="/projectList/{{sixth}}">{{sixth}}</a></li>
+          <li class="page-item">
+            <a class="page-link" href="/projectList/{{next}}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
       {{else}}
         <div class = "error-message">
           <p>Oops! There are no results for your search... Try Again and keep on Style!</p>
@@ -141,28 +162,7 @@
     </div>
   </div>
 
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item">
-        {{#if previous}}
-        <a id= "prev" class="page-link" href="/projectList/{{previous}}" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-        {{/if}}
-      </li>
-      <li class="page-item active"><a class="page-link" href="/projectList/{{page}}">{{page}}</a></li>
-      <li class="page-item"><a class="page-link" href="/projectList/{{second}}">{{second}}</a></li>
-      <li class="page-item"><a class="page-link" href="/projectList/{{third}}">{{third}}</a></li>
-      <li class="page-item"><a class="page-link" href="/projectList/{{fourth}}">{{fourth}}</a></li>
-      <li class="page-item"><a class="page-link" href="/projectList/{{fifth}}">{{fifth}}</a></li>
-      <li class="page-item"><a class="page-link" href="/projectList/{{sixth}}">{{sixth}}</a></li>
-      <li class="page-item">
-        <a class="page-link" href="/projectList/{{next}}" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  
 
 </div>
  

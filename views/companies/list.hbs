@@ -65,7 +65,7 @@
               <option value="Munich, Germany"></option>
               <option value="Hong Kong "></option>
             </datalist>
-
+ 
       <select class="form-select" name="size" aria-label="Default select example">
         <option selected disabled>Select a Company Size</option>
         <option value="Small Size">Small Size</option>
@@ -91,7 +91,7 @@
             <h5 class="card-title">{{name}}</h5>
             <p class="card-text">{{size.name}}</p>
             <form action = "/company/{{id}}" method="GET">
-            <button type="submit" class="btn btn-outline-primary">More info</button>
+            <button type="submit" class="btn btn-outline-warning btn-md">More info</button>
             </form>
           </div>
             <div class="card-footer text-muted">
@@ -99,16 +99,8 @@
             </div>
           </div>
         {{/each}}
-      {{else}}
-        <div class = "error-message">
-          <p>Oops! There are no results for your search... Try Again and keep on Style!</p>
-        </div>    
-      {{/if}}
-    </div>
-  </div>
-
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
+          <nav aria-label="Page navigation example">
+         <ul class="pagination">
       <li class="page-item">
         {{#if previous}}
         <a id= "prev" class="page-link" href="/projectList/{{previous}}" aria-label="Previous">
@@ -116,18 +108,24 @@
         </a>
         {{/if}}
       </li>
-      <li class="page-item active"><a class="page-link" href="/projectList/{{page}}">{{page}}</a></li>
-      <li class="page-item"><a class="page-link" href="/projectList/{{second}}">{{second}}</a></li>
-      <li class="page-item"><a class="page-link" href="/projectList/{{third}}">{{third}}</a></li>
-      <li class="page-item"><a class="page-link" href="/projectList/{{fourth}}">{{fourth}}</a></li>
-      <li class="page-item"><a class="page-link" href="/projectList/{{fifth}}">{{fifth}}</a></li>
-      <li class="page-item"><a class="page-link" href="/projectList/{{sixth}}">{{sixth}}</a></li>
+      <li class="page-item bg-warning active"><a class="page-link" href="/companyList/{{page}}">{{page}}</a></li>
+      <li class="page-item"><a class="page-link" href="/companyList/{{second}}">{{second}}</a></li>
+      <li class="page-item"><a class="page-link" href="/companyList/{{third}}">{{third}}</a></li>
+      <li class="page-item"><a class="page-link" href="/companyList/{{fourth}}">{{fourth}}</a></li>
+      <li class="page-item"><a class="page-link" href="/companyList/{{fifth}}">{{fifth}}</a></li>
+      <li class="page-item"><a class="page-link" href="/companyList/{{sixth}}">{{sixth}}</a></li>
       <li class="page-item">
-        <a class="page-link" href="/projectList/{{next}}" aria-label="Next">
+        <a class="page-link" href="/companyList/{{next}}" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>
-    </ul>
+         </ul>
   </nav>
-
+      {{else}}
+        <div class = "error-message">
+          <p>Oops! There are no results for your search... Try Again and keep on Style!</p>
+        </div>    
+      {{/if}}
+    </div>
+  </div>
 </div>

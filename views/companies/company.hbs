@@ -18,10 +18,14 @@
 			{{/each}}
 		</p>
 	</div>
-    <div class="card-body">
-      <a href="/jobs/company/{{company.name}}/1" class="card-link">Job offers from this company</a>
-      <a href="{{company.refs.landing_page}}" class="card-link">Landing page</a>
-    </div>
+    <div class="btn-box2">
+		<div class="companies-btn">
+      		<a class = "nav-link" href="/jobs/company/{{company.name}}/1" class="card-link">Job offers from this company</a>
+		</div>
+	  	<div class="companies-btn">
+	  		<a class = "nav-link" href="{{company.refs.landing_page}}" class="card-link">Landing page</a>
+		</div>
+	</div>
 	<div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

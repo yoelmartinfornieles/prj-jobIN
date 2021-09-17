@@ -116,9 +116,9 @@ router.get(`/jobs/company/:id/:page`, (req, res) => {
         let loggedIn = req.session.user;
         if (page > 1){
             previous = page-1;
-            res.render('jobs/companyList', {jobs: projectArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
+            res.render('jobs/list', {jobs: projectArray, previous: previous, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
         } else {
-            res.render('jobs/companyList', {jobs: projectArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
+            res.render('jobs/list', {jobs: projectArray, page: page, next: next, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, loggedIn: loggedIn})
         }
     })
     .catch(err => console.log(err));

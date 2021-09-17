@@ -1,19 +1,33 @@
-<div class = "page-container">
-   <form action="/auth/login" method="POST">
-      <label> Username
-         <input type="text" name="username">
-      </label>
-      <label> Password
-         <input type="password" name="password">
-      </label>
 
-      <button type="submit">Submit</button>
-   </form>
 
-   {{#if errorMessage}}
-   <p class="error">{{errorMessage}}</p>
-   {{/if}}
+<div class="page-container">
+  <div class="form">      
+    <div class="tab-content">        
+      <div id="login">   
+        <h1 class="welcome">Welcome Back!</h1>       
+          <form class="login" action="/auth/login" method="POST">
+            <div class="field-wrap">
+              <label> Username
+                <input type="text" class="form-control" name="username" required autocomplete="off">
+              </label>
+            </div>
+            <div class="field-wrap">
+              <label>
+                Password<span class="req"></span>
+              </label>
+              <input type="password" name="password" class="form-control" required autocomplete="off"/>
+            </div>
+            <div id = "otherbuttons" class="otherbutton">
+              <a class="nav-link-dark" href="#">Forgot Password?</a>
+            </div>
+            <button class="btn btn-x btn-outline-warning btn-md">Log In</button>
+          </form>
+        </div>    
+      </div>    
+  </div>
+  {{#if errorMessage}}
+    <p class="error">{{errorMessage}}</p>
+  {{/if}}
 </div>
-
 
    

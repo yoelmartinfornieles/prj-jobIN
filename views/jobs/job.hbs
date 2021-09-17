@@ -20,7 +20,7 @@
     </p>
     {{/each}}
     <p class="card-text">{{{job.contents}}}</p>
-    <a href="{{this.job.refs.landing_page}}" class="btn btn-primary">Apply to this job!</a>
+    <a href="{{this.job.refs.landing_page}}" class="btn btn-x btn-warning btn-md">Apply to this job!</a>
 
     <form action = "/add-favorite" method="POST">
           <input type="hidden" name="name" value="{{this.job.name}}">
@@ -29,7 +29,7 @@
           <input type="hidden" name="publication_date_hour" value="{{this.job.publication_date.hour}}">
           <input type="hidden" name="apiId" value="{{this.job.id}}">
           <input type="hidden" name="company" value="{{this.job.company.name}}">
-          <button type="submit">Save this job for later!</button> 
+          <button class= "btn btn-outline-warning btn-md"type="submit">Save this job for later!</button> 
     </form>
     </div>
     <div class="card-footer text-muted">
@@ -39,7 +39,7 @@
 
   <div id="company" >
     <div id="cimage">
-      <img src="{{this.company.refs.logo_image}}" class="card-img-top" alt="...">
+      <img src="{{this.company.refs.logo_image}}" class="card-img-top" alt="logo image">
     </div>
     <div class="card-body">
       <h5 class="card-title">{{this.company.name}}</h5>
@@ -51,10 +51,17 @@
       {{/each}}
     </ul>
     <div class="card-body">
-      <a href="/jobs/company/{{company.name}}/1" class="card-link">Job offers from this company</a>
-      <a href="{{company.refs.landing_page}}" class="card-link">Landing page</a>
-      <form action = "/company/{{company.id}}" method="GET">
-      <button type="submit" class="btn btn-outline-primary">More info</button>
+      <div id = "otherbuttons" class="otherbutton">
+        <a class="nav-link-dark" href="/jobs/company/{{company.name}}/1" class="card-link">Job offers from this company</a>
+      </div>
+      <div id = "otherbuttons" class="otherbutton">
+        <a class="nav-link-dark" href="{{company.refs.landing_page}}" class="card-link">Landing page</a>
+      </div>
+      <div id="moreinfo">
+        <form action = "/company/{{company.id}}" method="GET">
+        <button type="submit" class="btn btn-x btn-outline-warning btn-md">More info</button>
+        </form> 
+      </div>
     </div>
   </div>
 </div>
