@@ -359,6 +359,7 @@ body {
   .btn-box>div>a .user-profile #company-data #moreinfo {
     font-size: 8px !important;
     text-align: center;
+  }
 }
 
 .fav-list {
@@ -425,9 +426,14 @@ body {
   margin: 10px 30px !important;
 }
 
+.card-img-top {
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: scale-down;
+}
+
 .card-img-top>img {
-  width: 100%;
-  height: auto;
+
 }
 
 #main{
