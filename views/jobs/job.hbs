@@ -45,7 +45,7 @@
       <h5 class="card-title">{{this.company.name}}</h5>
       <p class="card-text">{{this.company.description}}</p>
     </div>
-    <ul class="list-group list-group-flush">
+    <ul id="company-data" class="list-group list-group-flush">
       {{#each company.locations}} 
       <li class="list-group-item">{{this.name}}</li>
       {{/each}}

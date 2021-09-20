@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
@@ -71,7 +71,7 @@
   color: rgb(247,194,68) !important;
 }
 
-.profile-btn{
+.profile-btn {
   display:flex;
   align-items: center;
 }
@@ -114,7 +114,7 @@ body {
   padding: 0px;
 }
 
-.top>h1{
+.top>h1 {
   color:white;
   margin-top: 60px;
   padding: 30px;
@@ -122,7 +122,7 @@ body {
   font-weight: 600;
 }
 
-.top>h3{
+.top>h3 {
   color:white;
   margin-bottom: 50px;
   padding: 30px;
@@ -133,7 +133,7 @@ body {
   margin-bottom: 80px;
 }
 
-.marketing-container{
+.marketing-container {
 
 
 
@@ -146,19 +146,19 @@ body {
   font-weight: 800;
 }
 
-.structure{
+.structure {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.structure>h3{
+.structure>h3 {
   font-weight: 600;
   margin: 15px;
 } 
 
-.structure>p{
+.structure>p {
   margin:20px;
   font-weight: 10;
   font-size: 18px;
@@ -299,7 +299,7 @@ body {
 }
 
 .user-profile {
-  width: 20vw;
+  width: 30vw;
   position: fixed;
   background-color: white;
   z-index: 51;
@@ -356,10 +356,9 @@ body {
 } 
 
 @media (max-width: 660px) {
-  .btn-box>div>a {
+  .btn-box>div>a .user-profile #company-data #moreinfo {
     font-size: 8px !important;
     text-align: center;
-  } 
 }
 
 .fav-list {
@@ -428,6 +427,7 @@ body {
 
 .card-img-top>img {
   width: 100%;
+  height: auto;
 }
 
 #main{
