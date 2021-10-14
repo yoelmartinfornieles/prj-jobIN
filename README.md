@@ -3,7 +3,7 @@
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> A project of a job search page using themuse.com API for data
+> A project of a responsive job search page using themuse.com API for data
 
 ### 🏠 [Homepage](https://github.com/yoelmartinfornieles/prj-restAPI)
 
@@ -19,7 +19,7 @@
 
 ## Tech Stack
 
-Javascript, node Js, express, mongoDB, handlebars, HTML, CSS
+Javascript, node Js, express, mongoDB, handlebars, HTML, CSS, bootstrap
 
 ## Install
 
