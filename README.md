@@ -9,6 +9,18 @@
 
 ### ✨ [Demo](https://project-jobin.herokuapp.com/)
 
+## Screenshots
+
+![App Screenshot](https://media-exp1.licdn.com/dms/image/C4D22AQG7TsyvnqcwNw/feedshare-shrink_2048_1536/0/1632904573150?e=1637193600&v=beta&t=FSABlMuQyfnoQLY16jItu21YIQA3IXOdwYZi7vD0xGM)
+
+## Visitors
+
+![Visitor Count](https://profile-counter.glitch.me/{yoelmartinfornieles}/count.svg)
+
+## Tech Stack
+
+Javascript, node Js, express, mongoDB, handlebars, HTML, CSS
+
 ## Install
 
 ```sh
@@ -31,6 +43,3 @@ npm run start
 ## Show your support
 
 Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
