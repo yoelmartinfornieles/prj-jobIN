@@ -37,8 +37,6 @@ npm run start
 
 👤 **Yoel Martin Fornieles**
 
-![Hey there, I'm Yoel! I'm a Full Stack Developer with a background in Computer Engineering specialized in Javascript (ES6), MongoDB, Express, React, NodeJS, HTML & CSS.](https://github.com/CyrisXD/CyrisXD/raw/master/bio.gif)
-
 * Github: [@https:\/\/github.com\/yoelmartinfornieles](https://github.com/https:\/\/github.com\/yoelmartinfornieles)
 * LinkedIn: [@https:\/\/www.linkedin.com\/in\/yoel-martin\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/yoel-martin\/)
 
