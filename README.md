@@ -40,7 +40,7 @@ npm run start
 * Github: [@https:\/\/github.com\/yoelmartinfornieles](https://github.com/https:\/\/github.com\/yoelmartinfornieles)
 * LinkedIn: [@https:\/\/www.linkedin.com\/in\/yoel-martin\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/yoel-martin\/)
 
-# Contributing
+## Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue,
 email, or any other method with the owners of this repository before making a change. 
