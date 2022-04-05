@@ -11,7 +11,7 @@
 
 ## Screenshots
 
-![App Screenshot](https://media-exp1.licdn.com/dms/image/C4D22AQG7TsyvnqcwNw/feedshare-shrink_2048_1536/0/1632904573150?e=1637193600&v=beta&t=FSABlMuQyfnoQLY16jItu21YIQA3IXOdwYZi7vD0xGM)
+![App Screenshot](https://media-exp1.licdn.com/dms/image/C4D22AQG7TsyvnqcwNw/feedshare-shrink_2048_1536/0/1632904573150?e=2147483647&v=beta&t=ujdc9LntNvg3ZmkEyNdUf7A5a6LmZ2sfnPYh2uEfMgE)
 
 ## Visitors
 
